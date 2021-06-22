@@ -15,7 +15,7 @@ The following are 4 ways the simulation was coded in:
 3. Numba optimized - this version, on top of being FFT optimized, uses Numba to do some of the heavy lifting (converts computationally difficult code into optimized machine language, which is compiled at run-time).  This is ~2.2x faster than (1.)
 4. Cython optmized - this is the most optimized code which on top of doing what Numba essentially does (defines all types in advance, lays out the ground work for the loops in C code), unwraps some of the numpy computations (np.exp) and allows a lot of the calculations to be done in parallel.  Users should figure it out for themselves how many threads to use. Using 8 threads on my own machine, I was able to achieve >4x improvement over the unoptimized version (1.).  Comparing this version with the only open source LLE simulation software out there that I could find (with my 6core/12threads CPU), which is already advertised to be >4x faster than a pure python implementation, Cython-lLLEe was an additional 3x faster than pyLLE developed by scientists at NIST.
 
-If only the most basic version of the LLE needs to be solved, then you only need to run the Cython-lLLEe.
+If only the most basic version of the LLE needs to be solved, then you only need to run Cython-lLLEe.
 
 ## How to use
 coming soon...

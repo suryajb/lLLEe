@@ -1,7 +1,7 @@
 # lLLEe
 learn LLE easily
 
-Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation and is 3x faster than the only open source LLE code out there I could find (pyLLE developed by NIST scientists) for simulation Kerr microring soliton dynamics (can be faster depending on computer and simulation parameters). If you're already convinced, you can skip to the "How to use" section.
+Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation and is 3x faster than the only open source LLE code out there I could find (pyLLE developed by NIST scientists) for simulation of Kerr microring soliton dynamics (can be faster depending on computer and simulation parameters). If you're already convinced, you can skip to the "How to use" section.
 
 ## Why did I do this?
 

@@ -3,6 +3,10 @@ learn LLE easily
 
 Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation and is 3x faster than the only open source LLE code out there I could find (pyLLE developed by NIST scientists) that is highly optimized for simulation of Kerr microring soliton dynamics (lLLEe can be faster depending on computer and simulation parameters). Additionally if you're not that familiar with coding and the math behind LLE, lLLEe might be easier to follow since the computation code is written in python. If you're already convinced, you can skip to the "How to use" section.
 
+Short and possibly inaccurate comparison with pyLLE: 
+If you just want to do a quick simulation of a comb spectrum with simple parameters, you should look into pyLLE which currently probably has an easier interface.
+If you want to learn about the inner-workings of the LLE, or wish to customize it to your own needs, and would like to simulate a comb spectrum extremely efficiently (on the level of C code and parallelized) due to some physical parameters of your system (high input power, large number of modes, small time steps/long simulation time...), but you don't have extensive coding experience, you might want to look into lLLEe
+
 ## Why did I do this?
 
 lLLEe is a simulation software for the driven, damped, detuned, nonlinear Schrodinger equation, AKA Lugiato-Lefever equation.  Its use is widespread in the nonlinear optics comunity and getting a good hang of it is important for any beginner in the space.  This code is designed to optimize the numerical simulation of the LLE while being very easy to customize and read for people of varying levels of experience in python.  This is because for different applications and material platforms users may discover the need to add additional physical effects (thermal, Raman, photorefractive, second order nonlinear processes... etc.), and being able to do so with ease is quite important for the scientific community.  Therefore most of the code written here is in python, and all the "new" physics one may wish to add into the LLE can be done with relative ease (inside a concentrated section of the code).

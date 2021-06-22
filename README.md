@@ -5,7 +5,7 @@ Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation
 
 Short and possibly inaccurate comparison with pyLLE: 
 If you just want to do a quick simulation of a comb spectrum with known parameters, you should look into pyLLE which currently probably has an easier interface.
-If you want to learn about the inner-workings of the LLE, or wish to customize it to your own needs, and would like to simulate a comb spectrum extremely efficiently (on the level of C code and parallelized) due to some physical parameters of your system (high input power, large number of modes, small time steps/long simulation time...), but you don't have extensive coding experience, you might want to look into lLLEe.
+If you want to learn about the inner-workings of the LLE, or wish to customize it to your own needs, and would like to simulate a comb spectrum extremely efficiently (on the level of C code and parallelized) due to some physical parameters of your system (high input power, large number of modes, small time steps/long simulation time...), but you don't have extensive coding experience, taking advantage of multi-threading, you might want to look into lLLEe.
 
 ## Why did I do this?
 

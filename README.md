@@ -1,7 +1,7 @@
 # lLLEe
 learn LLE easily
 
-Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation and is 3x faster than the only open source LLE code out there I could find (pyLLE developed by NIST scientists) that is already highly optimized for simulation of Kerr microring soliton dynamics (lLLEe can be faster depending on computer and simulation parameters). Additionally if you're not that familiar with coding and the math behind LLE, lLLEe might be easier to follow since the main computation is like a few lines written in python. If you're already convinced, you can skip to the "How to use" section.
+Motivation: this code is optimized for LLE (Lugiato-Lefever Equation) simulation and is 3x faster (could be more) than the only open source LLE code out there I could find (pyLLE developed by NIST scientists) that is already highly optimized for simulation of Kerr microring soliton dynamics (lLLEe can be faster depending on computer and simulation parameters). Additionally if you're not that familiar with coding and the math behind LLE, lLLEe might be easier to follow since the main computation is like a few lines written in python. If you're already convinced, you can skip to the "How to use" section.
 
 Short and possibly inaccurate comparison with pyLLE: 
 If you just want to do a quick simulation of a comb spectrum with known parameters, you should look into pyLLE which currently probably has an easier interface.

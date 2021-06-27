@@ -1,3 +1,7 @@
 # Ignore all ppt files
 *.pptx
 *.ppt
+
+# Ignore unit test folder
+test/
+test

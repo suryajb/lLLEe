@@ -214,7 +214,7 @@ class microring:
         return normalized_noise
 
 
-    def split_step(self,plan_fft=False,threads=1,wisdom=None,fastmath=False):
+    def split_step(self,plan_fft=False,threads=1,wisdom=None,fastmath=False,Pthreads=1):
         """split step method, initial seed starts off in the frequency domain, note that due to the randomness of
         the seed noise, the solutions may not be the same even when run multiple times with the same parameters"""
         with tqdm(total=self.Nsnapshots) as pbar:
@@ -261,7 +261,7 @@ class microring:
                 detuning = δarr
                 F_arr = np.complex128(F_arr)
                 self.sol = split_step_cython(Nsim,dt,dwext,dwi,dwtot,Dint_arr,detuning,F_arr,self.Nmodes,
-                    noise_norm,divbysnapshot,self.Nsnapshots,pbar,ifft_object,fft_object,ifft_arr,fft_arr)
+                    noise_norm,divbysnapshot,self.Nsnapshots,pbar,ifft_object,fft_object,ifft_arr,fft_arr,Pthreads)
 
             else: # this is without optimization to compare, using the optimized version usually gives a >30% speedup
                 

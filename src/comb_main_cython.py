@@ -11,7 +11,8 @@ if __name__ == '__main__':
 	parser.add_argument('-mode_offset',type=int,default=0,help='offset of modes in relation to central pump frequency, this is used for flexibility when Dint curve does not fully fit in range of modes')
 	parser.add_argument('-filename',type=str,default='combsol',help="file name for comb solution, default is 'combsol', do not include any suffix (e.g., .csv)")
 	parser.add_argument('-save',type=int,default=1,help='indicate if you want to save the comb solution (1 or 0), default is 1 (yes)')
-	parser.add_argument('-threads',type=int,default=1,help='indicate the number of threads you want to utilize for FFTs, default is 1')
+	parser.add_argument('-FFTthreads',type=int,default=1,help='indicate the number of threads you want to utilize for FFTs, default is 1')
+	parser.add_argument('-Pthreads',type=int,default=1,help='indicate the number of threads you want to use for parallel cexp computations, default is 1')
 	parser.add_argument('-plan_fft',type=int,default=1,help='indicate whether you want to use pyfftw, this should be 1 for faster simulation')
 	parser.add_argument('-fastmath',type=bool,default=False,help='indicate whether you want to use fastmath in numba, this sacrifices a bit in accuracy for speed')
 
@@ -37,6 +38,15 @@ if __name__ == '__main__':
 	parser.add_argument('-pump_power',type=float,default=250e-3,help='set laser pump power in watts, default 200e-3')
 
 	args = parser.parse_args()
+
+	os.system('python setup.py build_ext --inplace')
+
+	print('************************************************************')
+	print('************************************************************')
+	print('if the above compiled, quit simulation now and run again')
+	print('otherwise the simulation will not use the newly compiled code')
+	print('************************************************************')
+	print('************************************************************')
 	
 	aln_ring = microring(R=args.radius,height=args.height,width=args.width,ng=args.ng,Qc=args.Qc,Qi=args.Qi,n2=args.n2,
 		δnorm_range=args.detuning_range,ω_range=args.frequency_range,λ_range=args.wavelength_range,ω0=args.pump_frequency,
@@ -51,7 +61,7 @@ if __name__ == '__main__':
 	idx = None
 
 	if (value == 'y') or (value == 'yes'):
-		aln_ring.split_step(plan_fft=args.plan_fft,threads=args.threads,fastmath=args.fastmath)
+		aln_ring.split_step(plan_fft=args.plan_fft,threads=args.FFTthreads,fastmath=args.fastmath,Pthreads=args.Pthreads)
 
 		while not(value2 == 'y' or value2 == 'yes'):
 			if idx:
